@@ -1,0 +1,57 @@
+#include<iostream>
+#include<stack>
+
+using namespace std;
+stack<int> st,min_st;
+
+// create min_st code...
+void pus(int a)
+{
+    st.push(a);
+    if(min_st.empty())
+    {
+        min_st.push(a);
+    }
+    else
+    {
+        if(a<min_st.top())
+        {
+            min_st.push(a);
+        }
+        else
+        {
+            min_st.push(min_st.top());
+        }
+    }
+    
+}
+
+void po()
+{
+    st.pop();
+    min_st.pop();
+}
+
+void to()
+{
+    cout<<st.top()<<" ";
+}
+void get_min()
+{
+    cout<<min_st.top()<<" ";
+}
+
+ 
+int main() {
+	
+	pus(10);
+	pus(20);
+	pus(30);
+	po();
+	to();
+	get_min();
+	pus(5);
+	get_min();
+	
+	return 0;
+}
