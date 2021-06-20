@@ -1,0 +1,55 @@
+#include<iostream>
+#include<stack>
+
+using namespace std;
+stack<int> st,max_st;
+void pus(int a)
+{
+    st.push(a);
+    if(max_st.empty())
+    {
+        max_st.push(a);
+    }
+    else
+    {
+        if(a>max_st.top())
+        {
+            max_st.push(a);
+        }
+        else
+        {
+            max_st.push(max_st.top());
+        }
+    }
+    
+}
+
+void po()
+{
+    st.pop();
+    max_st.pop();
+}
+
+void to()
+{
+    cout<<st.top()<<" ";
+}
+void get_max()
+{
+    cout<<max_st.top()<<" ";
+}
+
+ 
+int main() {
+	
+	pus(10);
+	pus(20);
+	pus(30);
+	po();
+	to();
+	get_max();
+	pus(5);
+	get_max();
+	
+	return 0;
+}
